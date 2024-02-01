@@ -1,0 +1,187 @@
+:root {
+  --primary-color: #0b87ff;
+  --secondary-color: #163e92;
+  --tertiary-color: #d1d3d4;
+  --danger-color: #fb3b3b;
+  --success-color: #00b341;
+  --warning-color: #ff9f00;
+  --info-color: #0b87ff;
+  --light-color: #ffffff;
+  --dark-color: #111111;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 500;
+  --font-extra-bold: 600;
+  --font-black: 700;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(45, 121, 115, 0.73) 0%,
+    var(--danger-color) 100%
+  );
+  height: 100vh;
+}
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: initial;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--tertiary-color);
+}
+.container {
+  width: 100%;
+  max-width: 34em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+#new-task {
+  position: relative;
+  background-color: var(--light-color);
+  padding: 1.5em 1.25em;
+  border-radius: 0.3em;
+  box-shadow: 0 1.25em 1.8em rgba(1, 24, 48, 0.15);
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+#new-task input {
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid #d1d3d4;
+  padding: 0.8em 0.5em;
+  color: var(--dark-color);
+  font-weight: var(--font-bold);
+  width: 100%;
+}
+#new-task input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+#new-task button {
+  font-size: 1em;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  outline: none;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  width: 100px;
+}
+#tasks {
+  background-color: var(--light-color);
+  position: relative;
+  padding: 0.8em 0.6em;
+  margin-top: 3.8em;
+  width: 100%;
+  box-shadow: 0 1.25em 1.8em rgba(1, 24, 48, 0.15);
+  border-radius: 0.6em;
+}
+#list {
+  height: 25rem;
+  width: 100%;
+  padding: 0 1em;
+  overflow-y: scroll;
+}
+.task {
+  background-color: var(--light-color);
+  padding: 0.8em 0.6em;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--tertiary-color);
+  cursor: pointer;
+}
+.task span {
+  font-size: 0.9em;
+  font-weight: var(--font-normal);
+}
+.task button {
+  color: var(--light-color);
+  padding: 0.8em 0;
+  width: 2.8em;
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.todo-item .actions .delete {
+  background-color: var(--danger-color);
+  width: 60px;
+}
+.todo-item .actions .edit {
+  background-color: var(--success-color);
+  width: 60px;
+  margin-left: auto;
+  margin-right: 3em;
+}
+.todo-item {
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--light-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.todo-item label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.todo-item .todo-content {
+  flex: 1 1 0%;
+}
+.todo-item .todo-content input {
+  color: var(--dark-color);
+  font-size: 1.125rem;
+  width: 90%;
+}
+.todo-item .actions {
+  display: flex;
+  align-items: center;
+}
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--light-color);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.todo-item .actions button:hover {
+  opacity: 0.75;
+}
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+  color: var(--tertiary-color);
+}
+.todo-item .todo-content input {
+  color: var(--dark-color);
+  font-size: 1.125rem;
+}
+@media screen and (max-width: 798px) {
+  .container {
+    padding: 15px;
+  }
+  #task,
+  #list {
+    padding: 0;
+  }
+}
